@@ -6,14 +6,15 @@ public class PlebFlocker : MonoBehaviour {
 
 	public GameObject[] plebs;
 	public GameObject plebPrefab;
-	public GameObject target;
-	public GameObject fleeFrom;
+	public Transform target;
+	public Transform fleeFrom;
 	public int numPlebs = 10;
 	public float speedLim = .1f; 
 	public float factor1 = 100f;
 	public float factor2 = 1.5f;
 	public float factor3 = 8f;
 	public float factor4 = 100f;
+	public float factor5 = 10f;
 	public float repellant = 100f;
 
 
@@ -82,7 +83,7 @@ public class PlebFlocker : MonoBehaviour {
 	}
 
 	Vector3 Rule4(GameObject pleb){		//seek target
-		Vector3 targetPos = target.transform.position;
+		Vector3 targetPos = target.position;
 		Vector3 whereTo = targetPos - pleb.transform.position;
 		if (whereTo.magnitude < 10) {
 			pleb.GetComponent<Pleb> ().dampen = true;
@@ -93,9 +94,9 @@ public class PlebFlocker : MonoBehaviour {
 	}
 
 	Vector3 Rule5(GameObject pleb){		//flee from target
-		Vector3 targetPos = fleeFrom.transform.position;
+		Vector3 targetPos = fleeFrom.position;
 		Vector3 whereTo = targetPos - pleb.transform.position;
-		return - repellant * whereTo / factor4;
+		return -repellant * whereTo / (factor5 * Mathf.Pow(whereTo.magnitude, 2));
 	}
 
 	Vector3 LimitSpeed(Vector3 v){
