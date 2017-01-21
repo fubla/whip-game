@@ -13,6 +13,7 @@ public class WhipController : MonoBehaviour {
 
 	public Vector2 panLimits;
 	public Vector2 panSpeed;
+	public AudioSource audioSource;
 
 	void Start () {
 		attackHash = Animator.StringToHash ("Attack");
@@ -25,7 +26,8 @@ public class WhipController : MonoBehaviour {
 		mouse.x = (mouse.x / Screen.width - 0.5f) * 2.0f;
 		mouse.y = (mouse.y / Screen.height - 0.5f) * 2.0f;
 		mouse.z = 0.0f;
-		WhipRoot.transform.localPosition = Vector3.Scale (mouse, scaleOffset);
+		Vector3 translation = new Vector3 (mouse.x, mouse.y / Mathf.Sqrt (2.0f), mouse.y / Mathf.Sqrt (2.0f)); 
+		WhipRoot.transform.localPosition = Vector3.Scale (translation, scaleOffset);
 
 		//Camera Pan
 		if(mouse.x > panLimits.x)
@@ -36,15 +38,17 @@ public class WhipController : MonoBehaviour {
 			transform.position += Vector3.forward * (panSpeed.y * (mouse.y - panLimits.y) / (2.0f - panLimits.y));
 		if(mouse.y < -panLimits.y)
 			transform.position += Vector3.forward * (panSpeed.y * (mouse.y + panLimits.y) / (2.0f - panLimits.y));
-		/*
+		
 		RaycastHit hit;
 		Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
 
 		if (Physics.Raycast (ray, out hit)) {
 			WhipRoot.transform.LookAt (hit.point);
-		}*/
-		if (Input.GetMouseButton (0))
-			animator.SetTrigger (attackHash);
+		}
 
+		if (Input.GetMouseButtonDown (0)) {
+			audioSource.Play();
+			animator.SetTrigger (attackHash);
+		}
 	}
 }
