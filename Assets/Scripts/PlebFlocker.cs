@@ -9,19 +9,19 @@ public class PlebFlocker : MonoBehaviour {
 	public Transform target;
 	public Transform fleeFrom;
 	public int numPlebs = 10;
-	private int remaining;
+	private int remaining; 		// remaining plebs (for gameover condition)
 	public float speedLim = .1f; 
-	public float factor1 = 100f;
-	public float factor2 = 1.5f;
-	public float factor3 = 8f;
-	public float factor4 = 100f;
-	public float factor5 = 10f;
-	public float repellant = 100f;
+	public float factor1 = 100f; // plebs seek center of mass of their population
+	public float factor2 = 1.5f; // collision distance
+	public float factor3 = 8f;	// alignment with average velocity vector
+	public float factor4 = 100f;	// seek target amount
+	public float factor5 = 10f;		// avoid scary stuff amount
+	public float repellant = 100f;	// amount of repellant "force" from scary stuff
 
 	public int xMax, zMax, xMin, zMin;
 
 
-	public float cohesionFac = .05f;
+	public float cohesionFac = .05f;  //how much plebs repel each other
 
 
 	// Use this for initialization

@@ -57,7 +57,7 @@ public class Pleb : MonoBehaviour {
 			velocity *= dampen ? dampening : 1;
 		} else if (state == STATE.IDLE) {
 			animator.SetBool ("Moving", false);
-			if (Mathf.Abs (velocity.x) >= 0.3f || Mathf.Abs (velocity.z) >= 0.3f) {
+			if (Mathf.Abs (velocity.x) >= 0.2f || Mathf.Abs (velocity.z) >= 0.2f) {
 				state = STATE.MOVING;
 			}
 		} else if (state == STATE.BUILDING) {
