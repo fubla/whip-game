@@ -59,7 +59,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4940917186224460}
-  - component: {fileID: 114821570134628284}
+  - component: {fileID: 114513380111241090}
   m_Layer: 0
   m_Name: Whip
   m_TagString: Untagged
@@ -312,13 +312,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1179609153346044}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.00034904052, y: 0, z: 0, w: 0.99999994}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4940917186224460}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.04, y: 0, z: 0}
 --- !u!4 &4134213862278578
 Transform:
   m_ObjectHideFlags: 1
@@ -339,7 +339,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416662789928460}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 270.8, z: 0}
+  m_LocalPosition: {x: 0, y: 270, z: 0}
   m_LocalScale: {x: 5, y: 10, z: 5}
   m_Children: []
   m_Father: {fileID: 4940917186224460}
@@ -365,7 +365,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1044729449442904}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 250.8, z: 0}
+  m_LocalPosition: {x: 0, y: 250, z: 0}
   m_LocalScale: {x: 5, y: 10, z: 5}
   m_Children: []
   m_Father: {fileID: 4940917186224460}
@@ -404,7 +404,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1140800044813244}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 330.8, z: 0}
+  m_LocalPosition: {x: 0, y: 330, z: 0}
   m_LocalScale: {x: 5, y: 10, z: 5}
   m_Children: []
   m_Father: {fileID: 4940917186224460}
@@ -430,7 +430,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1648328531789104}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 230.8, z: 0}
+  m_LocalPosition: {x: 0, y: 230, z: 0}
   m_LocalScale: {x: 5, y: 10, z: 5}
   m_Children: []
   m_Father: {fileID: 4940917186224460}
@@ -443,7 +443,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1751336048856432}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 310.8, z: 0}
+  m_LocalPosition: {x: 0, y: 310, z: 0}
   m_LocalScale: {x: 5, y: 10, z: 5}
   m_Children: []
   m_Father: {fileID: 4940917186224460}
@@ -456,7 +456,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1932893073897334}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 290.8, z: 0}
+  m_LocalPosition: {x: 0, y: 290, z: 0}
   m_LocalScale: {x: 5, y: 10, z: 5}
   m_Children: []
   m_Father: {fileID: 4940917186224460}
@@ -494,8 +494,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123998498980644}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.70710677}
-  m_LocalPosition: {x: 20, y: 150, z: -233}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4114551696216726}
@@ -514,7 +514,7 @@ Transform:
   - {fileID: 4542713289653032}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23075624802240704
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -1265,7 +1265,7 @@ HingeJoint:
   m_GameObject: {fileID: 1031234962268386}
   m_ConnectedBody: {fileID: 54476622606050848}
   m_Anchor: {x: 0, y: -1, z: 0}
-  m_Axis: {x: 1, y: 1, z: 1}
+  m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 1, z: 0}
   m_UseSpring: 0
@@ -1278,7 +1278,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_Limits:
     min: 0
     max: 20
@@ -1297,7 +1297,7 @@ HingeJoint:
   m_GameObject: {fileID: 1751336048856432}
   m_ConnectedBody: {fileID: 54331163606872874}
   m_Anchor: {x: 0, y: -1, z: 0}
-  m_Axis: {x: 1, y: 1, z: 1}
+  m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 1, z: 0}
   m_UseSpring: 0
@@ -1310,7 +1310,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_Limits:
     min: 0
     max: 20
@@ -1319,7 +1319,7 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
 --- !u!59 &59466237460228672
 HingeJoint:
@@ -1329,7 +1329,7 @@ HingeJoint:
   m_GameObject: {fileID: 1913693845789550}
   m_ConnectedBody: {fileID: 54685699134171526}
   m_Anchor: {x: 0, y: -1, z: 0}
-  m_Axis: {x: 1, y: 1, z: 1}
+  m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 1, z: 0}
   m_UseSpring: 0
@@ -1342,7 +1342,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_Limits:
     min: 0
     max: 20
@@ -1351,7 +1351,7 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
 --- !u!59 &59565069755103880
 HingeJoint:
@@ -1361,7 +1361,7 @@ HingeJoint:
   m_GameObject: {fileID: 1279066990956040}
   m_ConnectedBody: {fileID: 54436627572670090}
   m_Anchor: {x: 0, y: -1, z: 0}
-  m_Axis: {x: 1, y: 1, z: 1}
+  m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 1, z: 0}
   m_UseSpring: 0
@@ -1374,7 +1374,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_Limits:
     min: 0
     max: 20
@@ -1383,7 +1383,7 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
 --- !u!59 &59603184204144910
 HingeJoint:
@@ -1393,9 +1393,9 @@ HingeJoint:
   m_GameObject: {fileID: 1999331720209618}
   m_ConnectedBody: {fileID: 54618163934405206}
   m_Anchor: {x: 0, y: -1, z: 0}
-  m_Axis: {x: 1, y: 1, z: 1}
+  m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 100, z: 0}
+  m_ConnectedAnchor: {x: 0, y: 99.99998, z: -0.069808096}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -1406,7 +1406,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_Limits:
     min: 0
     max: 20
@@ -1425,7 +1425,7 @@ HingeJoint:
   m_GameObject: {fileID: 1140800044813244}
   m_ConnectedBody: {fileID: 54594126243154112}
   m_Anchor: {x: 0, y: -1, z: 0}
-  m_Axis: {x: 1, y: 1, z: 1}
+  m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 1, z: 0}
   m_UseSpring: 0
@@ -1438,7 +1438,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_Limits:
     min: 0
     max: 20
@@ -1447,7 +1447,7 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
 --- !u!59 &59626767923094072
 HingeJoint:
@@ -1457,9 +1457,9 @@ HingeJoint:
   m_GameObject: {fileID: 1416662789928460}
   m_ConnectedBody: {fileID: 54535866012436648}
   m_Anchor: {x: 0, y: -1, z: 0}
-  m_Axis: {x: 1, y: 1, z: 1}
+  m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.9999985, z: 0}
+  m_ConnectedAnchor: {x: 0, y: 1, z: 0}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -1470,7 +1470,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_Limits:
     min: 0
     max: 20
@@ -1479,7 +1479,7 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
 --- !u!59 &59633329346993446
 HingeJoint:
@@ -1489,9 +1489,9 @@ HingeJoint:
   m_GameObject: {fileID: 1539922105880466}
   m_ConnectedBody: {fileID: 54165219943067552}
   m_Anchor: {x: 0, y: -1, z: 0}
-  m_Axis: {x: 1, y: 1, z: 1}
+  m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.82000124, z: 0}
+  m_ConnectedAnchor: {x: 0, y: 0.90000004, z: 0}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -1502,7 +1502,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_Limits:
     min: 0
     max: 20
@@ -1511,7 +1511,7 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
 --- !u!59 &59802622848665290
 HingeJoint:
@@ -1521,7 +1521,7 @@ HingeJoint:
   m_GameObject: {fileID: 1658999111649728}
   m_ConnectedBody: {fileID: 54301510913321310}
   m_Anchor: {x: 0, y: -1, z: 0}
-  m_Axis: {x: 1, y: 1, z: 1}
+  m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 1, z: 0}
   m_UseSpring: 0
@@ -1534,7 +1534,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_Limits:
     min: 0
     max: 20
@@ -1543,7 +1543,7 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
 --- !u!59 &59829135413155438
 HingeJoint:
@@ -1553,7 +1553,7 @@ HingeJoint:
   m_GameObject: {fileID: 1134181596702646}
   m_ConnectedBody: {fileID: 54441746310388962}
   m_Anchor: {x: 0, y: -1, z: 0}
-  m_Axis: {x: 1, y: 1, z: 1}
+  m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 1, z: 0}
   m_UseSpring: 0
@@ -1566,7 +1566,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_Limits:
     min: 0
     max: 20
@@ -1575,7 +1575,7 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
 --- !u!59 &59887888368346338
 HingeJoint:
@@ -1585,9 +1585,9 @@ HingeJoint:
   m_GameObject: {fileID: 1648328531789104}
   m_ConnectedBody: {fileID: 54665957130384432}
   m_Anchor: {x: 0, y: -1, z: 0}
-  m_Axis: {x: 1, y: 1, z: 1}
+  m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 1.0800003, z: 0}
+  m_ConnectedAnchor: {x: 0, y: 1, z: 0}
   m_UseSpring: 0
   m_Spring:
     spring: 0
@@ -1598,7 +1598,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_Limits:
     min: 0
     max: 20
@@ -1607,7 +1607,7 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
 --- !u!59 &59935401831057922
 HingeJoint:
@@ -1617,7 +1617,7 @@ HingeJoint:
   m_GameObject: {fileID: 1044729449442904}
   m_ConnectedBody: {fileID: 54488718909935022}
   m_Anchor: {x: 0, y: -1, z: 0}
-  m_Axis: {x: 1, y: 1, z: 1}
+  m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 1, z: 0}
   m_UseSpring: 0
@@ -1630,7 +1630,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_Limits:
     min: 0
     max: 20
@@ -1639,7 +1639,7 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
 --- !u!59 &59942484663654366
 HingeJoint:
@@ -1649,7 +1649,7 @@ HingeJoint:
   m_GameObject: {fileID: 1932893073897334}
   m_ConnectedBody: {fileID: 54386949301610686}
   m_Anchor: {x: 0, y: -1, z: 0}
-  m_Axis: {x: 1, y: 1, z: 1}
+  m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 1, z: 0}
   m_UseSpring: 0
@@ -1662,7 +1662,7 @@ HingeJoint:
     targetVelocity: 0
     force: 0
     freeSpin: 0
-  m_UseLimits: 1
+  m_UseLimits: 0
   m_Limits:
     min: 0
     max: 20
@@ -1671,9 +1671,9 @@ HingeJoint:
     contactDistance: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_EnablePreprocessing: 1
---- !u!114 &114821570134628284
+--- !u!114 &114513380111241090
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1686,6 +1686,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whipShaft: {fileID: 4114551696216726}
   scaleFactor: {x: 100, y: 100}
+  riseSpeed: 25
+  lowerSpeed: 25
 --- !u!135 &135026312145882180
 SphereCollider:
   m_ObjectHideFlags: 1
