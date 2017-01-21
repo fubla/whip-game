@@ -59,7 +59,7 @@ MonoBehaviour:
   numPlebs: 100
   speedLim: 1
   factor1: 1000
-  factor2: 1.5
+  factor2: 2
   factor3: 8
   factor4: 1000
   factor5: 1
@@ -68,7 +68,7 @@ MonoBehaviour:
   zMax: 200
   xMin: -200
   zMin: -200
-  cohesionFac: 0.15
+  cohesionFac: 0.1
 --- !u!114 &114641375139598050
 MonoBehaviour:
   m_ObjectHideFlags: 1
