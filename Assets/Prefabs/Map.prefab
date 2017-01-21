@@ -57,13 +57,17 @@ MonoBehaviour:
   target: {fileID: 4826106344040540, guid: 45766d258234e483683d22b6d00edf02, type: 2}
   fleeFrom: {fileID: 4603071078876886, guid: d9e486798380d42859dfb69687d32951, type: 2}
   numPlebs: 100
-  speedLim: 5
-  factor1: 10000
+  speedLim: 1
+  factor1: 1000
   factor2: 1.5
   factor3: 8
   factor4: 1000
   factor5: 1
   repellant: 2
+  xMax: 200
+  zMax: 200
+  xMin: -200
+  zMin: -200
   cohesionFac: 0.15
 --- !u!114 &114641375139598050
 MonoBehaviour:

@@ -9,6 +9,7 @@ public class PlebFlocker : MonoBehaviour {
 	public Transform target;
 	public Transform fleeFrom;
 	public int numPlebs = 10;
+	private int remaining;
 	public float speedLim = .1f; 
 	public float factor1 = 100f;
 	public float factor2 = 1.5f;
@@ -16,6 +17,8 @@ public class PlebFlocker : MonoBehaviour {
 	public float factor4 = 100f;
 	public float factor5 = 10f;
 	public float repellant = 100f;
+
+	public int xMax, zMax, xMin, zMin;
 
 
 	public float cohesionFac = .05f;
@@ -25,33 +28,44 @@ public class PlebFlocker : MonoBehaviour {
 	void Start () {
 		plebs = new GameObject[numPlebs];
 		SpawnPlebs (numPlebs);
+		remaining = numPlebs;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		for (int i = 0; i < numPlebs; i++) {
-			Vector3 v1 = Rule1 (plebs[i]);
-			Vector3 v2 = Rule2 (plebs[i]);
-			Vector3 v3 = Rule3 (plebs[i]);
-			Vector3 v4 = Rule4 (plebs[i]);
-			Vector3 v5 = Rule5 (plebs [i]);
-			Vector3 v = plebs [i].GetComponent<Pleb> ().GetVelocity();
-			plebs [i].GetComponent<Pleb> ().SetVelocity (LimitSpeed(v + v1 + v2 + v3 + v4 + v5));
+			if (plebs [i].transform.position.x >= xMax ||
+			    plebs [i].transform.position.x <= xMin ||
+			    plebs [i].transform.position.z >= zMax ||
+			    plebs [i].transform.position.z <= zMin) {
+				remaining--;
+				plebs [i].SetActive (false);
+			} else if (plebs[i].activeSelf){
+				Vector3 v1 = Rule1 (plebs [i]);
+				Vector3 v2 = Rule2 (plebs [i]);
+				Vector3 v3 = Rule3 (plebs [i]);
+				Vector3 v4 = Rule4 (plebs [i]);
+				Vector3 v5 = Rule5 (plebs [i]);
+				Vector3 v = plebs [i].GetComponent<Pleb> ().GetVelocity ();
+				plebs [i].GetComponent<Pleb> ().SetVelocity (LimitSpeed (v + v1 + v2 + v3 + v4 + v5));
+			}
 		}
 	}
 
 	void SpawnPlebs(int numPlebs){
 		Random.InitState (Time.frameCount);
 		for (int i = 0; i < numPlebs; i++) {
-			plebs [i] = Instantiate (plebPrefab, new Vector3 (Random.Range (-10.0f, 10.0f), 2f, Random.Range (-10.0f, 10.0f)), Quaternion.identity);
-			plebs [i].GetComponent<Pleb> ().SetVelocity (new Vector3 (Random.Range (-1.0f, 1.0f), 0, Random.Range (-1.0f, 1.0f)));
+			
+				plebs [i] = Instantiate (plebPrefab, new Vector3 (Random.Range (-10.0f, 10.0f), 2f, Random.Range (-10.0f, 10.0f)), Quaternion.identity);
+				plebs [i].GetComponent<Pleb> ().SetVelocity (new Vector3 (Random.Range (-1.0f, 1.0f), 0, Random.Range (-1.0f, 1.0f)));
+
 		}
 	}
 
 	Vector3 Rule1(GameObject pleb){
 		Vector3 pcj = new Vector3 ();
 		for (int i = 0; i < numPlebs; i++) {
-			if (!plebs [i].Equals (pleb)) {
+			if (!plebs [i].Equals (pleb) && plebs [i].activeSelf) {
 				pcj += plebs [i].transform.position;
 			}
 		}
@@ -63,7 +77,7 @@ public class PlebFlocker : MonoBehaviour {
 	Vector3 Rule2(GameObject pleb){
 		Vector3 c = new Vector3 ();
 		for (int i = 0; i < numPlebs; i++) {
-			if (!plebs [i].Equals (pleb) && (pleb.transform.position - plebs[i].transform.position).magnitude < factor2) {
+			if (!plebs [i].Equals (pleb) && (pleb.transform.position - plebs[i].transform.position).magnitude < factor2 && plebs [i].activeSelf) {
 				c -= (plebs [i].transform.position - pleb.transform.position);
 			}
 		}
@@ -73,7 +87,7 @@ public class PlebFlocker : MonoBehaviour {
 	Vector3 Rule3(GameObject pleb){
 		Vector3 pvj = new Vector3 ();
 		for (int i = 0; i < numPlebs; i++) {
-			if (!plebs [i].Equals (pleb)) {
+			if (!plebs [i].Equals (pleb) && plebs [i].activeSelf) {
 				pvj += plebs [i].GetComponent<Pleb>().GetVelocity();
 			}
 		}
@@ -104,5 +118,9 @@ public class PlebFlocker : MonoBehaviour {
 			return speedLim * v.normalized;
 		else
 			return v;
+	}
+
+	public int GetRemaining(){
+		return remaining;
 	}
 }

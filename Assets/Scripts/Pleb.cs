@@ -17,6 +17,8 @@ public class Pleb : MonoBehaviour {
 	public bool dampen;
 	public STATE state;
 	private SpriteRenderer sr;
+	private int panickCounter;
+
 
 	public Vector3 velocity;
 	Animator animator;
@@ -34,28 +36,33 @@ public class Pleb : MonoBehaviour {
 	void Update () {
 		Random.InitState (Time.frameCount);
 		if (state == STATE.PANICKED) {
-			animator.SetBool ("Idle", false);
 			animator.SetBool ("Moving", true);
 			transform.position += velocity;
 			velocity = new Vector3 (Random.Range (-1.0f, 1.0f), 0, Random.Range (-1.0f, 1.0f));
+			if (panickCounter-- <= 0) {
+				panickCounter = 0;
+				state = STATE.IDLE;
+			}
+
 		} else if (state == STATE.MOVING) {
 			bool flipX = velocity.x < 0;
-			animator.SetBool ("Idle", false);
 			animator.SetBool ("Moving", true);
 			transform.position += velocity;
 
-			if (Mathf.Abs(velocity.x) < 0.2f && Mathf.Abs(velocity.z) < 0.2f) {
+			if (Mathf.Abs (velocity.x) < 0.2f && Mathf.Abs (velocity.z) < 0.2f) {
 				velocity = new Vector3 ();
 				state = STATE.IDLE;
 			}
 			sr.flipX = flipX;
 			velocity *= dampen ? dampening : 1;
 		} else if (state == STATE.IDLE) {
-			animator.SetBool ("Idle", true);
 			animator.SetBool ("Moving", false);
 			if (Mathf.Abs (velocity.x) >= 0.3f || Mathf.Abs (velocity.z) >= 0.3f) {
 				state = STATE.MOVING;
 			}
+		} else if (state == STATE.BUILDING) {
+			animator.SetBool ("Building", true);
+
 		}
 	}
 
@@ -66,6 +73,4 @@ public class Pleb : MonoBehaviour {
 	public void SetVelocity(Vector3 velocity){
 		this.velocity = velocity;
 	}
-
-
 }
