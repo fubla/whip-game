@@ -13,27 +13,30 @@ public class Pleb : MonoBehaviour {
 		MOVING
 	}
 		
-
 	public float timeStep = .01f;
+	public float dampening = 0.99f;
+	public bool dampen;
 	public STATE state;
 
-	private Vector3 velocity;
+	public Vector3 velocity;
 
 	// Use this for initialization
 	void Start () {
+		dampen = false;
 		state = STATE.MOVING;
-		velocity = new Vector3 (0,0,0);
+		velocity = new Vector3 (Random.Range (-1.0f, 1.0f), 0, Random.Range (-1.0f, 1.0f));
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		Random.InitState (Time.frameCount);
-		if (state == STATE.IDLE)
-			velocity = new Vector3 ();
-		else if (state == STATE.PANICKED)
-			velocity = new Vector3 (Random.Range (-10.0f, 10.0f), 0, Random.Range (-10.0f, 10.0f));
+		if (state == STATE.PANICKED){
+			transform.position += timeStep * velocity;
+			velocity = new Vector3 (Random.Range (-1.0f, 1.0f), 0, Random.Range (-1.0f, 1.0f));
+		}
 		else if (state == STATE.MOVING) {
 			transform.position += timeStep * velocity;
+			velocity *= dampen ? dampening : 1;
 		}
 	}
 

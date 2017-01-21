@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4159469977441262}
   - component: {fileID: 114641375139598050}
+  - component: {fileID: 114384513542787872}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -40,6 +41,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114384513542787872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1242274939124486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de4abcf010914c219236cfa065ce2da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plebs: []
+  plebPrefab: {fileID: 1698027579563966, guid: d5b5330b863664dae89b61794beeb21c, type: 2}
+  target: {fileID: 1537425732758578, guid: 45766d258234e483683d22b6d00edf02, type: 2}
+  fleeFrom: {fileID: 1359386928339360, guid: d9e486798380d42859dfb69687d32951, type: 2}
+  numPlebs: 10
+  speedLim: 3
+  factor1: 100
+  factor2: 1.5
+  factor3: 10
+  factor4: 100
+  repellant: 0.3
+  cohesionFac: 0.05
 --- !u!114 &114641375139598050
 MonoBehaviour:
   m_ObjectHideFlags: 1
