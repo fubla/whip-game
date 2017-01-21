@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85596359ad1c48a6b51fad159c87913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dampening: 0.9
+  dampening: 0.5
   dampen: 0
   state: 4
   velocity: {x: 0, y: 0, z: 0}
@@ -84,8 +84,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.74
+  m_Height: 4.3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &212675741093183834
