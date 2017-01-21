@@ -3,50 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WhipController : MonoBehaviour {
+	
+	public Camera playerCamera;
+	public Transform WhipRoot;
+	public Animator animator;
+	private int attackHash;
 
-	public Transform whipShaft;
-	public Vector2 scaleFactor;
-	public float riseSpeed;
-	public float lowerSpeed; 
+	public Vector3 scaleOffset; 
 
-	private float maxAngle;
-	// Use this for initialization
+	public Vector2 panLimits;
+	public Vector2 panSpeed;
+
 	void Start () {
-		maxAngle = 90;
+		attackHash = Animator.StringToHash ("Attack");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-		Vector3 mousePosition = Input.mousePosition;
-		Vector2 mouseRelative = new Vector2(0.0f, 0.0f);
-		mouseRelative.x = (mousePosition.x - Screen.width / 2.0f) / Screen.width;
-		mouseRelative.y = (mousePosition.y - Screen.height / 2.0f) / Screen.height;
+		// Whip position
+		Vector3 mouse = Input.mousePosition;
+		mouse.x = (mouse.x / Screen.width - 0.5f) * 2.0f;
+		mouse.y = (mouse.y / Screen.height - 0.5f) * 2.0f;
+		mouse.z = 0.0f;
+		WhipRoot.transform.localPosition = Vector3.Scale (mouse, scaleOffset);
 
-		whipShaft.localPosition = Vector2.Scale(scaleFactor, mouseRelative);
+		//Camera Pan
+		if(mouse.x > panLimits.x)
+			transform.position += Vector3.right * (panSpeed.x * (mouse.x - panLimits.x) / (2.0f - panLimits.x));
+		if(mouse.x < -panLimits.x)
+			transform.position += Vector3.right * (panSpeed.x * (mouse.x + panLimits.x) / (2.0f - panLimits.x));
+		if(mouse.y > panLimits.y)
+			transform.position += Vector3.forward * (panSpeed.y * (mouse.y - panLimits.y) / (2.0f - panLimits.y));
+		if(mouse.y < -panLimits.y)
+			transform.position += Vector3.forward * (panSpeed.y * (mouse.y + panLimits.y) / (2.0f - panLimits.y));
+		/*
+		RaycastHit hit;
+		Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
 
-		float angle = whipShaft.transform.rotation.eulerAngles.x;
-		Debug.Log (angle);
-
-		if (Input.GetMouseButton (0)) {
-			if (angle > 0) {
-		        Vector3 pos = whipShaft.transform.position;
-		        Vector3 axis = Vector3.right;
-		        float amount = -riseSpeed * Time.deltaTime;
-		        whipShaft.transform.RotateAround (pos, axis, amount);
-			}
-			if (angle < maxAngle)
-				maxAngle = angle;
-		} else {
-			if (angle < 90 || angle < 180 - maxAngle) {
-				Vector3 pos = whipShaft.transform.position;
-				Vector3 axis = Vector3.right;
-				float amount = lowerSpeed * Time.deltaTime;
-				whipShaft.transform.RotateAround (pos, axis, amount);
-			} else {
-                maxAngle = 90;
-            }
-		}
+		if (Physics.Raycast (ray, out hit)) {
+			WhipRoot.transform.LookAt (hit.point);
+		}*/
+		if (Input.GetMouseButton (0))
+			animator.SetTrigger (attackHash);
 
 	}
 }

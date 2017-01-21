@@ -1,0 +1,244 @@
+fileFormatVersion: 2
+guid: 5321f9b55c4bcc948a8f1e93511e2ab9
+timeCreated: 1485020493
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: whip_rig_bone_d1
+    100004: whip_rig_bone_d10
+    100006: whip_rig_bone_d2
+    100008: whip_rig_bone_d3
+    100010: whip_rig_bone_d4
+    100012: whip_rig_bone_d5
+    100014: whip_rig_bone_d6
+    100016: whip_rig_bone_d7
+    100018: whip_rig_bone_d8
+    100020: whip_rig_bone_d9
+    100022: whip_rig_bone_ROOT
+    100024: whip_rig_bone_tipEND
+    100026: whip_rig_bone_tipROOT
+    100028: whip_rig_GEOwhip_handle
+    100030: whip_rig_GEOwhip_rope
+    100032: whip_rig_GEOwhip_tip
+    400000: //RootNode
+    400002: whip_rig_bone_d1
+    400004: whip_rig_bone_d10
+    400006: whip_rig_bone_d2
+    400008: whip_rig_bone_d3
+    400010: whip_rig_bone_d4
+    400012: whip_rig_bone_d5
+    400014: whip_rig_bone_d6
+    400016: whip_rig_bone_d7
+    400018: whip_rig_bone_d8
+    400020: whip_rig_bone_d9
+    400022: whip_rig_bone_ROOT
+    400024: whip_rig_bone_tipEND
+    400026: whip_rig_bone_tipROOT
+    400028: whip_rig_GEOwhip_handle
+    400030: whip_rig_GEOwhip_rope
+    400032: whip_rig_GEOwhip_tip
+    2300000: whip_rig_GEOwhip_handle
+    2300002: whip_rig_GEOwhip_tip
+    3300000: whip_rig_GEOwhip_handle
+    3300002: whip_rig_GEOwhip_tip
+    4300000: whip_rig_GEOwhip_handle
+    4300002: whip_rig_GEOwhip_tip
+    4300004: whip_rig_GEOwhip_rope
+    7400000: Idle
+    7400002: Attack
+    9500000: //RootNode
+    13700000: whip_rig_GEOwhip_rope
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 2
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: whip_rig_bone_ROOT
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4/whip_rig_bone_d5
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4/whip_rig_bone_d5/whip_rig_bone_d6
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4/whip_rig_bone_d5/whip_rig_bone_d6/whip_rig_bone_d7
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4/whip_rig_bone_d5/whip_rig_bone_d6/whip_rig_bone_d7/whip_rig_bone_d8
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4/whip_rig_bone_d5/whip_rig_bone_d6/whip_rig_bone_d7/whip_rig_bone_d8/whip_rig_bone_d9
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4/whip_rig_bone_d5/whip_rig_bone_d6/whip_rig_bone_d7/whip_rig_bone_d8/whip_rig_bone_d9/whip_rig_bone_d10
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4/whip_rig_bone_d5/whip_rig_bone_d6/whip_rig_bone_d7/whip_rig_bone_d8/whip_rig_bone_d9/whip_rig_bone_d10/whip_rig_bone_tipROOT
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4/whip_rig_bone_d5/whip_rig_bone_d6/whip_rig_bone_d7/whip_rig_bone_d8/whip_rig_bone_d9/whip_rig_bone_d10/whip_rig_bone_tipROOT/whip_rig_bone_tipEND
+        weight: 1
+      - path: whip_rig_GEOwhip_handle
+        weight: 1
+      - path: whip_rig_GEOwhip_rope
+        weight: 1
+      - path: whip_rig_GEOwhip_tip
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: whip_rig_bone_ROOT
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4/whip_rig_bone_d5
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4/whip_rig_bone_d5/whip_rig_bone_d6
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4/whip_rig_bone_d5/whip_rig_bone_d6/whip_rig_bone_d7
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4/whip_rig_bone_d5/whip_rig_bone_d6/whip_rig_bone_d7/whip_rig_bone_d8
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4/whip_rig_bone_d5/whip_rig_bone_d6/whip_rig_bone_d7/whip_rig_bone_d8/whip_rig_bone_d9
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4/whip_rig_bone_d5/whip_rig_bone_d6/whip_rig_bone_d7/whip_rig_bone_d8/whip_rig_bone_d9/whip_rig_bone_d10
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4/whip_rig_bone_d5/whip_rig_bone_d6/whip_rig_bone_d7/whip_rig_bone_d8/whip_rig_bone_d9/whip_rig_bone_d10/whip_rig_bone_tipROOT
+        weight: 1
+      - path: whip_rig_bone_ROOT/whip_rig_bone_d1/whip_rig_bone_d2/whip_rig_bone_d3/whip_rig_bone_d4/whip_rig_bone_d5/whip_rig_bone_d6/whip_rig_bone_d7/whip_rig_bone_d8/whip_rig_bone_d9/whip_rig_bone_d10/whip_rig_bone_tipROOT/whip_rig_bone_tipEND
+        weight: 1
+      - path: whip_rig_GEOwhip_handle
+        weight: 1
+      - path: whip_rig_GEOwhip_rope
+        weight: 1
+      - path: whip_rig_GEOwhip_tip
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: whip_rig_bone_ROOT
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
