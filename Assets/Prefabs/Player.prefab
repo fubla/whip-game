@@ -623,8 +623,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -773,8 +773,8 @@ MonoBehaviour:
   playerCamera: {fileID: 20754475180404898}
   WhipRoot: {fileID: 4071997087260034}
   animator: {fileID: 95600227085487878}
-  scaleOffset: {x: 2, y: 1.5, z: 1}
-  panLimits: {x: 0.7, y: 0.7}
+  scaleOffset: {x: 5, y: 3, z: 1}
+  panLimits: {x: 0.9, y: 0.8}
   panSpeed: {x: 1, y: 1}
 --- !u!124 &124335527230890462
 Behaviour:
