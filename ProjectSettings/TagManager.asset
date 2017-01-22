@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Pleb
   - Building
+  - BuildingDone
+  - BuildingRuin
+  - BuildingBlueprint
   layers:
   - Default
   - TransparentFX

@@ -7,7 +7,7 @@ public class Tile : MonoBehaviour {
 	public bool passable = true;
 	public bool buildable = true;
 
-	public enum TILE_STAGE {GRASS, SAND, BLUEPRINT, BUILD, DESTROYED};
+	public enum TILE_STAGE {WATER, GRASS, SAND, BLUEPRINT, BUILD, DESTROYED};
 	public TILE_STAGE tileStage;
 
 	public float whippingToImprove = 2.0f;
@@ -26,6 +26,10 @@ public class Tile : MonoBehaviour {
 	public Material build;
 	public Material destroyed;
 
+	private GameObject Building;
+	private GameObject Blueprint;
+	private GameObject Ruin;
+
 	private MeshRenderer localRenderer;
 
 	private BlockMapGenerator map;
@@ -41,6 +45,16 @@ public class Tile : MonoBehaviour {
 		flocker = mapObject.GetComponent<PlebFlocker> ();
 
 		localRenderer = GetComponent<MeshRenderer> ();
+
+		foreach (Transform child in transform)
+		{
+			if (child.tag == "BuildingRuin")
+				Ruin = child.gameObject;
+			if (child.tag == "BuildingDone")
+				Building = child.gameObject;
+			if (child.tag == "BuildingBlueprint")
+				Blueprint = child.gameObject;
+		}
 	}
 	
 	// Update is called once per frame
@@ -59,6 +73,8 @@ public class Tile : MonoBehaviour {
 			if (buildScore > buildingWork) {
 				tileStage = TILE_STAGE.BUILD;
 				localRenderer.material = build;
+				Blueprint.SetActive (false);
+				Building.SetActive (true);
 			}
 				
 		}
@@ -78,6 +94,7 @@ public class Tile : MonoBehaviour {
 			tileStage = TILE_STAGE.BLUEPRINT;
 			localRenderer.material = blueprint;
 			flocker.targets.Add (transform);
+			Blueprint.SetActive (true);
 		}
 	}
 }

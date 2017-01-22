@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33705794050730368}
   - component: {fileID: 64747074725120074}
   - component: {fileID: 23218272050584016}
+  - component: {fileID: 114088253898170880}
   m_Layer: 0
   m_Name: Water
   m_TagString: Untagged
@@ -94,3 +95,29 @@ MeshCollider:
   m_InflateMesh: 0
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 19989bda152eb1841a73964b3e5c248c, type: 3}
+--- !u!114 &114088253898170880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1313229392566060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43090898a64f34b0ebbf078382ba6a29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passable: 0
+  buildable: 0
+  tileStage: 0
+  whippingToImprove: Infinity
+  whippingDecay: Infinity
+  buildingWork: Infinity
+  buildingDecay: Infinity
+  buildRadius: 0
+  buildingHealt: 0
+  healthRegen: 0
+  grass: {fileID: 0}
+  sand: {fileID: 0}
+  blueprint: {fileID: 0}
+  build: {fileID: 0}
+  destroyed: {fileID: 0}

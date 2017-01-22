@@ -53,7 +53,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiles:
   - {fileID: 1659807349002354, guid: 66bced2f8fb6b204385f38b72eaa9913, type: 2}
+  - {fileID: 1313229392566060, guid: fdd5ef68b359c04428eee97ae5912152, type: 2}
   tilesWeights:
+  - 25
   - 1
   size: 5
   scaleOffset: 2
