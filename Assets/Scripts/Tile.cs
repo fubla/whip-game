@@ -26,9 +26,9 @@ public class Tile : MonoBehaviour {
 	public Material build;
 	public Material destroyed;
 
-	private GameObject Building;
-	private GameObject Blueprint;
-	private GameObject Ruin;
+	public GameObject Building;
+	public GameObject Blueprint;
+	public GameObject Ruin;
 
 	private MeshRenderer localRenderer;
 

@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 4885072336199296}
   m_Layer: 0
   m_Name: Ruin
-  m_TagString: BuildingDone
+  m_TagString: BuildingRuin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -818,9 +818,9 @@ MonoBehaviour:
   buildable: 1
   tileStage: 1
   whippingToImprove: 1.5
-  whippingDecay: 0.2
+  whippingDecay: 0.1
   buildingWork: 5
-  buildingDecay: 0.5
+  buildingDecay: 0.2
   buildRadius: 5
   buildingHealt: 10
   healthRegen: 0.9
@@ -829,3 +829,6 @@ MonoBehaviour:
   blueprint: {fileID: 2100000, guid: b2474a8169bf8f2489c5bbb33a41be42, type: 2}
   build: {fileID: 2100000, guid: b2474a8169bf8f2489c5bbb33a41be42, type: 2}
   destroyed: {fileID: 2100000, guid: 67a413016233bfb4d87bf18ab9c2af8c, type: 2}
+  Building: {fileID: 0}
+  Blueprint: {fileID: 0}
+  Ruin: {fileID: 0}
