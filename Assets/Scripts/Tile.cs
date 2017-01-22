@@ -63,8 +63,8 @@ public class Tile : MonoBehaviour {
 				
 		}
 		if (tileStage == TILE_STAGE.BUILD) {
-			if(damage > 0.0f)
-				damage -= healthRegen
+			if (damage > 0.0f)
+				damage -= healthRegen * Time.deltaTime;
 		}
 	}
 
