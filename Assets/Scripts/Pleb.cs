@@ -86,6 +86,9 @@ public class Pleb : MonoBehaviour {
 
 		}else if (state == STATE.DESTROYING) {
 			animator.SetBool ("Destroying", true);
+			animator.SetBool ("Building", false);
+			animator.SetBool ("Moving", false);	
+			velocity = new Vector3 (0, 0, 0);
 		}
 	}
 

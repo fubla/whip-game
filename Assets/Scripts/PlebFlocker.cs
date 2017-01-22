@@ -166,11 +166,20 @@ public class PlebFlocker : MonoBehaviour {
 		return count;
 	}
 
+	public int CountDestroyers(Vector3 location, float radius){
+		int count = 0;
+		for (int i = 0; i < numPlebs; i++) {
+			float distance = (plebs[i].transform.position - location).magnitude;
+			if (plebs [i].activeSelf && distance <= radius && plebs[i].GetComponent<Pleb>().GetState() == Pleb.STATE.DESTROYING)
+				count++;
+		}
+		return count;
+	}
+
 	void CheckAndBuild(GameObject pleb){
-		float minDistance = buildDistance;
 		foreach (Transform target in targets) {
 			float distance = (target.position - pleb.transform.position).magnitude;
-			if (distance <= minDistance) {
+			if (distance <= buildDistance) {
 				if (target.gameObject.GetComponent<Tile> ().tileStage == Tile.TILE_STAGE.BLUEPRINT) {
 					pleb.GetComponent<Pleb> ().SetState (Pleb.STATE.BUILDING);
 				} else if (target.gameObject.GetComponent<Tile> ().tileStage == Tile.TILE_STAGE.BUILD) {
