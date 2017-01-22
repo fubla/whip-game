@@ -18,6 +18,8 @@ public class PlebFlocker : MonoBehaviour {
 	public float factor5 = 1f;		// avoid scary stuff amount
 	public float repellant = 2f;	// amount of repellant "force" from scary stuff
 
+	public float buildDistance = 5.0f;
+
 	public int xMax, zMax, xMin, zMin;
 
 
@@ -49,6 +51,7 @@ public class PlebFlocker : MonoBehaviour {
 				Vector3 v5 = Rule5 (plebs [i]);
 				Vector3 v = pleb.GetVelocity ();
 				int moraleImpact = MoraleImpact (plebs [i]);
+				CheckAndBuild (plebs [i]);
 				pleb.SetMorale (pleb.GetMorale () + moraleImpact);
 				pleb.SetVelocity (LimitSpeed (v + v1 + v2 + v3 + v4 + v5));
 			}
@@ -59,7 +62,7 @@ public class PlebFlocker : MonoBehaviour {
 		Random.InitState (Time.frameCount);
 		for (int i = 0; i < numPlebs; i++) {
 			
-				plebs [i] = Instantiate (plebPrefab, new Vector3 (Random.Range (-10.0f, 10.0f), 2f, Random.Range (-10.0f, 10.0f)), Quaternion.identity);
+				plebs [i] = Instantiate (plebPrefab, new Vector3 (Random.Range (-50.0f, 50.0f), 2f, Random.Range (-50.0f, 50.0f)), Quaternion.identity);
 				plebs [i].GetComponent<Pleb> ().SetVelocity (new Vector3 (Random.Range (-1.0f, 1.0f), 0, Random.Range (-1.0f, 1.0f)));
 
 		}
@@ -118,9 +121,12 @@ public class PlebFlocker : MonoBehaviour {
 	}
 
 	Vector3 Rule5(GameObject pleb){		//flee from target
-		Vector3 targetPos = fleeFrom.position;
-		Vector3 whereTo = targetPos - pleb.transform.position;
-		return -repellant * whereTo / (factor5 * Mathf.Pow(whereTo.magnitude, 2));
+		if (fleeFrom) {
+			Vector3 targetPos = fleeFrom.position;
+			Vector3 whereTo = targetPos - pleb.transform.position;
+			return -repellant * whereTo / (factor5 * Mathf.Pow (whereTo.magnitude, 2));
+		} else
+			return new Vector3 (0, 0, 0);
 	}
 
 	Vector3 LimitSpeed(Vector3 v){
@@ -158,5 +164,20 @@ public class PlebFlocker : MonoBehaviour {
 				count++;
 		}
 		return count;
+	}
+
+	void CheckAndBuild(GameObject pleb){
+		float minDistance = buildDistance;
+		foreach (Transform target in targets){
+			float distance = (target.position - pleb.transform.position).magnitude;
+			if (distance <= minDistance) {
+				if (target.gameObject.GetComponent<Tile> ().tileStage == Tile.TILE_STAGE.BLUEPRINT) {
+					pleb.GetComponent<Pleb> ().SetState (Pleb.STATE.BUILDING);
+				} else if (target.gameObject.GetComponent<Tile> ().tileStage == Tile.TILE_STAGE.BUILD) {
+					pleb.GetComponent<Pleb> ().SetState (Pleb.STATE.DESTROYING);
+				} else {
+					pleb.GetComponent<Pleb> ().SetState (Pleb.STATE.MOVING);
+				}
+			}
 	}
 }

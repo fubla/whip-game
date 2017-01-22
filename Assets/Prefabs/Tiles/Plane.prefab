@@ -821,7 +821,7 @@ MonoBehaviour:
   whippingDecay: 0.2
   buildingWork: 5
   buildingDecay: 0.5
-  buildRadius: 0.5
+  buildRadius: 5
   buildingHealt: 10
   healthRegen: 0.9
   grass: {fileID: 2100000, guid: 32a1ff9490348c74f9b94e2fb988eda9, type: 2}

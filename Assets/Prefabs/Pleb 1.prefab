@@ -72,9 +72,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dampening: 0.8
-  dampen: 0
-  state: 4
-  morale: 0
+  dampen: 1
+  state: 0
+  morale: 100
   scatter: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!136 &136543990206839000

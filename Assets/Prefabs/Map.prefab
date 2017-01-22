@@ -53,10 +53,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plebs: []
-  plebPrefab: {fileID: 0}
+  plebPrefab: {fileID: 1698027579563966, guid: d5b5330b863664dae89b61794beeb21c, type: 2}
   targets: []
   fleeFrom: {fileID: 0}
-  numPlebs: 20
+  numPlebs: 100
   speedLim: 0.5
   factor1: 1000
   factor2: 2
@@ -64,10 +64,10 @@ MonoBehaviour:
   factor4: 800
   factor5: 1
   repellant: 2
-  xMax: 0
-  zMax: 0
-  xMin: 0
-  zMin: 0
+  xMax: 50
+  zMax: 50
+  xMin: -50
+  zMin: -50
   cohesionFac: 0.1
 --- !u!114 &114132014182067158
 MonoBehaviour:
@@ -85,5 +85,5 @@ MonoBehaviour:
   tilesWeights:
   - 1
   size: 10
-  scaleOffset: 5
+  scaleOffset: 10
   borderTile: {fileID: 1913585156328646, guid: 8da1543e63ff0b04bb1391846f9d0665, type: 2}

@@ -25,14 +25,13 @@ public class Pleb : MonoBehaviour {
 	Animator animator;
 	// Use this for initialization
 	void Start () {
+		state = STATE.IDLE;
 		morale = 100;
 		scatter = false;
 		sr = GetComponent<SpriteRenderer> ();
 		animator = GetComponent<Animator> ();
 		animator.SetFloat ("Speedvar", Random.Range (0.5f, 1.0f));
 		dampen = false;
-		state = STATE.MOVING;
-		velocity = new Vector3 (Random.Range (-1.0f, 1.0f), 0, Random.Range (-1.0f, 1.0f));
 	}
 	
 	// Update is called once per frame
@@ -44,7 +43,7 @@ public class Pleb : MonoBehaviour {
 			state = STATE.PANICKED;
 			animator.SetBool ("Moving", true);
 		}
-
+	
 		if(morale < -100)
 			morale = -100;
 		
@@ -81,11 +80,12 @@ public class Pleb : MonoBehaviour {
 				velocity = new Vector3 (0, 0, 0);
 			}
 		} else if (state == STATE.BUILDING) {
-			animator.SetBool ("Building", true);
+				animator.SetBool ("Building", true);
+				animator.SetBool ("Moving", false);
+				velocity = new Vector3 (0, 0, 0);
 
 		}else if (state == STATE.DESTROYING) {
 			animator.SetBool ("Destroying", true);
-
 		}
 	}
 
@@ -113,4 +113,9 @@ public class Pleb : MonoBehaviour {
 	public STATE GetState(){
 		return state;
 	}
+
+	public void SetState(STATE state){
+		this.state = state;
+	}
+
 }
