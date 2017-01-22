@@ -41,13 +41,16 @@ public class PlebFlocker : MonoBehaviour {
 				remaining--;
 				plebs [i].SetActive (false);
 			} else if (plebs[i].activeSelf){
-				Vector3 v1 = Rule1 (plebs [i]);
+				Pleb pleb = plebs [i].GetComponent<Pleb> ();
+				Vector3 v1 = (pleb.GetScatter() ? -1 : 1) * Rule1 (plebs [i]);
 				Vector3 v2 = Rule2 (plebs [i]);
 				Vector3 v3 = Rule3 (plebs [i]);
-				Vector3 v4 = Rule4 (plebs [i]);
+				Vector3 v4 = (pleb.GetScatter() ? new Vector3(0,0,0) : Rule4 (plebs [i]));
 				Vector3 v5 = Rule5 (plebs [i]);
-				Vector3 v = plebs [i].GetComponent<Pleb> ().GetVelocity ();
-				plebs [i].GetComponent<Pleb> ().SetVelocity (LimitSpeed (v + v1 + v2 + v3 + v4 + v5));
+				Vector3 v = pleb.GetVelocity ();
+				int moraleImpact = MoraleImpact (plebs [i]);
+				pleb.SetMorale (pleb.GetMorale () + moraleImpact);
+				pleb.SetVelocity (LimitSpeed (v + v1 + v2 + v3 + v4 + v5));
 			}
 		}
 	}
@@ -122,5 +125,21 @@ public class PlebFlocker : MonoBehaviour {
 
 	public int GetRemaining(){
 		return remaining;
+	}
+
+	int MoraleImpact(GameObject pleb){
+		int moraleImpact = 0;
+
+		for (int i = 0; i < numPlebs; i++) {
+			float distance = (plebs[i].transform.position - pleb.transform.position).magnitude;
+			if (!plebs [i].Equals (pleb) 
+				&& plebs [i].activeSelf 
+				&& distance <= 5) 
+			{
+				int morale = plebs [i].GetComponent<Pleb> ().GetMorale ();
+				moraleImpact += (int)( (morale < 0 ? morale : 0) / (distance*distance));
+			}
+		}
+		return moraleImpact;
 	}
 }
