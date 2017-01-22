@@ -50,7 +50,7 @@ public class Pleb : MonoBehaviour {
 		if (state == STATE.PANICKED) {
 			scatter = true;
 			velocity.y = 0;
-			transform.position += velocity;
+			transform.position += 1.5f*velocity;
 
 			if (morale > 0) {
 				state = STATE.IDLE;

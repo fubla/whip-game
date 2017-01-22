@@ -104,6 +104,6 @@ public class Tile : MonoBehaviour {
 			flocker.targets.Add (transform);
 			Blueprint.SetActive (true);
 		}
-		// flocker.AddTerror (transform, 2.0f);
+		flocker.AddTerror (transform.position, 2000.0f);
 	}
 }

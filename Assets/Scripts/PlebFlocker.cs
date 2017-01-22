@@ -7,6 +7,7 @@ public class PlebFlocker : MonoBehaviour {
 	public GameObject[] plebs;
 	public GameObject plebPrefab;
 	public List<Vector3> horrors;
+	public List<float> horrorDurations;
 	public List<Transform> targets;
 	public Transform fleeFrom;
 	public int numPlebs = 20;
@@ -19,8 +20,9 @@ public class PlebFlocker : MonoBehaviour {
 	public float factor5 = 1f;		// avoid scary stuff amount
 	public float repellant = 2f;	// amount of repellant "force" from scary stuff
 
-	public float horrorFactor = 100f;
+	public float horrorFactor = 1000f;
 	public float horrorDistance = 10f;
+	public float horrorDecay = .5f;
 
 	public float buildDistance = 5.0f;
 
@@ -56,6 +58,7 @@ public class PlebFlocker : MonoBehaviour {
 				Vector3 v = pleb.GetVelocity ();
 				int moraleImpact = MoraleImpact (plebs [i]);
 				CheckAndBuild (plebs [i]);
+				CheckHorrors ();
 				pleb.SetMorale (pleb.GetMorale () + moraleImpact);
 				pleb.SetVelocity (LimitSpeed (v + v1 + v2 + v3 + v4 + v5));
 			}
@@ -157,10 +160,11 @@ public class PlebFlocker : MonoBehaviour {
 				int morale = plebs [i].GetComponent<Pleb> ().GetMorale ();
 				moraleImpact += (int)( (morale < 0 ? morale : 0) / (distance*distance));
 			}
-			foreach (Vector3 horror in horrors) {
-				if ((horror - pleb.transform.position).magnitude <= horrorDistance) {
-					moraleImpact += (int)(horrorFactor / (horror - pleb.transform.position).magnitude);
-				}
+
+		}
+		foreach (Vector3 horror in horrors) {
+			if ((horror - pleb.transform.position).magnitude <= horrorDistance) {
+				moraleImpact -= (int)((horrorFactor / (horror - pleb.transform.position).magnitude));
 			}
 		}
 		return moraleImpact;
@@ -186,8 +190,9 @@ public class PlebFlocker : MonoBehaviour {
 		return count;
 	}
 		
-	void AddTerror(Vector3 location){
+	public void AddTerror(Vector3 location, float duration){
 		horrors.Add (location);
+		horrorDurations.Add (duration);
 	}
 
 
@@ -204,6 +209,16 @@ public class PlebFlocker : MonoBehaviour {
 					pleb.GetComponent<Pleb> ().SetState (Pleb.STATE.MOVING);
 				}
 			}
+		}
+	}
+
+	void CheckHorrors(){
+		for(int i = 0; i < horrors.Count; i++){
+			if (horrorDurations [i] <= 0) {
+				horrorDurations.RemoveAt (i);
+				horrors.RemoveAt (i);
+			} else
+				horrorDurations [i] -= Time.deltaTime;
 		}
 	}
 }
