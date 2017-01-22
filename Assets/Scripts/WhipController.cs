@@ -13,6 +13,7 @@ public class WhipController : MonoBehaviour {
 
 	public Vector2 panLimits;
 	public Vector2 panSpeed;
+	public Vector2 panBoundaries;
 	public AudioSource audioSource;
 
 	void Start () {
@@ -38,7 +39,18 @@ public class WhipController : MonoBehaviour {
 			transform.position += Vector3.forward * (panSpeed.y * (mouse.y - panLimits.y) / (2.0f - panLimits.y));
 		if(mouse.y < -panLimits.y)
 			transform.position += Vector3.forward * (panSpeed.y * (mouse.y + panLimits.y) / (2.0f - panLimits.y));
-		
+
+		Vector3 position = transform.position;
+		if (position.x > panBoundaries.x)
+			position.x = panBoundaries.x;
+		if (position.x < -panBoundaries.x)
+			position.x = -panBoundaries.x;
+		if (position.z > panBoundaries.y)
+			position.z = panBoundaries.y;
+		if (position.z < -panBoundaries.y)
+			position.z = -panBoundaries.y;
+		transform.position = position;
+
 		RaycastHit hit;
 		Ray ray = playerCamera.ScreenPointToRay(Input.mousePosition);
 

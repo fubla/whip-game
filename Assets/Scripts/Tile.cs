@@ -4,20 +4,80 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour {
 
-	public enum TILE_TYPE {UNBUILDABLE, BADLY_BUILDABLE, BUILDABLE};
-	public enum BUILDING_TYPE {NONE, FIRST, SECOND, THIRD};
-	public BUILDING_TYPE buildingType;
-	public TILE_TYPE tileType;
-	// Use this for initialization
+	public bool passable = true;
+	public bool buildable = true;
+
+	public enum TILE_STAGE {GRASS, SAND, BLUEPRINT, BUILD, DESTROYED};
+	public TILE_STAGE tileStage;
+
+	public float whippingToImprove = 2.0f;
+	public float whippingDecay = 0.5f;
+
+	public float buildingWork = 5.0f;
+	public float buildingDecay = 0.5f;
+	public float buildRadius = 0.5f;
+
+	public float buildingHealt = 10.0f;
+	public float healthRegen = 0.9f;
+
+	public Material grass;
+	public Material sand;
+	public Material blueprint;
+	public Material build;
+	public Material destroyed;
+
+	private MeshRenderer localRenderer;
+
+	private BlockMapGenerator map;
+	private PlebFlocker flocker;
+
+	private float whippingScore = 0.0f;
+	private float buildScore = 0.0f;
+	private float damage = 0.0f;
 
 	void Start () {
-		Random.InitState (Time.frameCount);
-		tileType = (TILE_TYPE)Random.Range ((int)TILE_TYPE.UNBUILDABLE, (int)TILE_TYPE.BUILDABLE + 1);
-		buildingType = BUILDING_TYPE.NONE;
+		GameObject mapObject = GameObject.Find ("Map"); 
+		map = mapObject.GetComponent<BlockMapGenerator> ();
+		flocker = mapObject.GetComponent<PlebFlocker> ();
+
+		localRenderer = GetComponent<MeshRenderer> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (whippingScore > 0.0f)
+			whippingScore -= (Time.deltaTime * whippingDecay);
+		if (tileStage == TILE_STAGE.SAND && whippingScore < whippingToImprove) {
+			tileStage = TILE_STAGE.GRASS;
+			localRenderer.material = grass;
+		}
+		if (tileStage == TILE_STAGE.BLUEPRINT){
+			if (buildScore > 0.0f)
+				buildScore -= buildingDecay * Time.deltaTime;
+			int buildingPlebs = flocker.CountBuilders (transform.position, buildRadius);
+			buildScore += Time.deltaTime * buildingPlebs;
+			if (buildScore > buildingWork) {
+				tileStage = TILE_STAGE.BUILD;
+				localRenderer.material = build;
+			}
+				
+		}
+		if (tileStage == TILE_STAGE.BUILD) {
+			if(damage > 0.0f)
+				damage -= healthRegen
+		}
+	}
+
+	void OnTriggerEnter(Collider other){
+		whippingScore += 1.0f;
+		if(tileStage == TILE_STAGE.GRASS && whippingScore > whippingToImprove){
+			tileStage = TILE_STAGE.SAND;
+			localRenderer.material = sand;
+		}
+		if (tileStage == TILE_STAGE.SAND && whippingScore > whippingToImprove * 2) {
+			tileStage = TILE_STAGE.BLUEPRINT;
+			localRenderer.material = blueprint;
+			flocker.targets.Add (transform);
+		}
 	}
 }
