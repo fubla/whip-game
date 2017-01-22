@@ -822,8 +822,8 @@ MonoBehaviour:
   buildingWork: 5
   buildingDecay: 0.2
   buildRadius: 5
-  buildingHealt: 10
-  healthRegen: 0.9
+  buildingHealt: 50
+  healthRegen: 1
   grass: {fileID: 2100000, guid: 32a1ff9490348c74f9b94e2fb988eda9, type: 2}
   sand: {fileID: 2100000, guid: a81df3a485978094ab60296295d56436, type: 2}
   blueprint: {fileID: 2100000, guid: b2474a8169bf8f2489c5bbb33a41be42, type: 2}
