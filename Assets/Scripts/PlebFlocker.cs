@@ -168,7 +168,7 @@ public class PlebFlocker : MonoBehaviour {
 
 	void CheckAndBuild(GameObject pleb){
 		float minDistance = buildDistance;
-		foreach (Transform target in targets){
+		foreach (Transform target in targets) {
 			float distance = (target.position - pleb.transform.position).magnitude;
 			if (distance <= minDistance) {
 				if (target.gameObject.GetComponent<Tile> ().tileStage == Tile.TILE_STAGE.BLUEPRINT) {
@@ -179,5 +179,6 @@ public class PlebFlocker : MonoBehaviour {
 					pleb.GetComponent<Pleb> ().SetState (Pleb.STATE.MOVING);
 				}
 			}
+		}
 	}
 }
