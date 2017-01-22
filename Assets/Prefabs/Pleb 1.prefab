@@ -71,9 +71,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85596359ad1c48a6b51fad159c87913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dampening: 0.5
+  dampening: 0.8
   dampen: 0
   state: 4
+  morale: 0
+  scatter: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!136 &136543990206839000
 CapsuleCollider:

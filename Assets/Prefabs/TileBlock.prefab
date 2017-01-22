@@ -55,5 +55,5 @@ MonoBehaviour:
   - {fileID: 1659807349002354, guid: 66bced2f8fb6b204385f38b72eaa9913, type: 2}
   tilesWeights:
   - 1
-  size: 5
+  size: 1
   scaleOffset: 2
