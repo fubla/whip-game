@@ -6,6 +6,7 @@ public class PlebFlocker : MonoBehaviour {
 
 	public GameObject[] plebs;
 	public GameObject plebPrefab;
+	public List<Vector3> horrors;
 	public List<Transform> targets;
 	public Transform fleeFrom;
 	public int numPlebs = 20;
@@ -17,6 +18,9 @@ public class PlebFlocker : MonoBehaviour {
 	public float factor4 = 800f;	// seek target amount
 	public float factor5 = 1f;		// avoid scary stuff amount
 	public float repellant = 2f;	// amount of repellant "force" from scary stuff
+
+	public float horrorFactor = 100f;
+	public float horrorDistance = 10f;
 
 	public float buildDistance = 5.0f;
 
@@ -120,12 +124,13 @@ public class PlebFlocker : MonoBehaviour {
 		return whereTo / factor4;
 	}
 
-	Vector3 Rule5(GameObject pleb){		//flee from target
-		if (fleeFrom) {
-			Vector3 targetPos = fleeFrom.position;
-			Vector3 whereTo = targetPos - pleb.transform.position;
-			return -repellant * whereTo / (factor5 * Mathf.Pow (whereTo.magnitude, 2));
-		} else
+	Vector3 Rule5(GameObject pleb){	//flee from target
+		if(fleeFrom){
+				Vector3 targetPos = fleeFrom.position;
+				Vector3 whereTo = targetPos - pleb.transform.position;
+				return -repellant * whereTo / (factor5 * Mathf.Pow (whereTo.magnitude, 2));
+			}
+		else
 			return new Vector3 (0, 0, 0);
 	}
 
@@ -152,6 +157,11 @@ public class PlebFlocker : MonoBehaviour {
 				int morale = plebs [i].GetComponent<Pleb> ().GetMorale ();
 				moraleImpact += (int)( (morale < 0 ? morale : 0) / (distance*distance));
 			}
+			foreach (Vector3 horror in horrors) {
+				if ((horror - pleb.transform.position).magnitude <= horrorDistance) {
+					moraleImpact += (int)(horrorFactor / (horror - pleb.transform.position).magnitude);
+				}
+			}
 		}
 		return moraleImpact;
 	}
@@ -175,6 +185,12 @@ public class PlebFlocker : MonoBehaviour {
 		}
 		return count;
 	}
+		
+	void AddTerror(Vector3 location){
+		horrors.Add (location);
+	}
+
+
 
 	void CheckAndBuild(GameObject pleb){
 		foreach (Transform target in targets) {
