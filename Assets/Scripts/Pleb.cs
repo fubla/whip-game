@@ -56,6 +56,7 @@ public class Pleb : MonoBehaviour {
 			if (morale > 0) {
 				state = STATE.IDLE;
 				scatter = false;
+				velocity = new Vector3 (0, 0, 0);
 				animator.SetBool ("Moving", false);
 			}
 
@@ -107,5 +108,9 @@ public class Pleb : MonoBehaviour {
 
 	public bool GetScatter(){
 		return scatter;
+	}
+
+	public STATE GetState(){
+		return state;
 	}
 }

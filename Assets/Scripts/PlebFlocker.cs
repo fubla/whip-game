@@ -6,22 +6,22 @@ public class PlebFlocker : MonoBehaviour {
 
 	public GameObject[] plebs;
 	public GameObject plebPrefab;
-	public Transform target;
+	public List<Transform> targets;
 	public Transform fleeFrom;
-	public int numPlebs = 10;
+	public int numPlebs = 20;
 	private int remaining; 		// remaining plebs (for gameover condition)
-	public float speedLim = .1f; 
-	public float factor1 = 100f; // plebs seek center of mass of their population
-	public float factor2 = 1.5f; // collision distance
-	public float factor3 = 8f;	// alignment with average velocity vector
-	public float factor4 = 100f;	// seek target amount
-	public float factor5 = 10f;		// avoid scary stuff amount
-	public float repellant = 100f;	// amount of repellant "force" from scary stuff
+	public float speedLim = .5f; 
+	public float factor1 = 1000f; // plebs seek center of mass of their population
+	public float factor2 = 2f; // collision distance
+	public float factor3 = 10f;	// alignment with average velocity vector
+	public float factor4 = 800f;	// seek target amount
+	public float factor5 = 1f;		// avoid scary stuff amount
+	public float repellant = 2f;	// amount of repellant "force" from scary stuff
 
 	public int xMax, zMax, xMin, zMin;
 
 
-	public float cohesionFac = .05f;  //how much plebs repel each other
+	public float cohesionFac = .1f;  //how much plebs repel each other
 
 
 	// Use this for initialization
@@ -100,13 +100,20 @@ public class PlebFlocker : MonoBehaviour {
 	}
 
 	Vector3 Rule4(GameObject pleb){		//seek target
-		Vector3 targetPos = target.position;
-		Vector3 whereTo = targetPos - pleb.transform.position;
-		if (whereTo.magnitude < 10) {
-			pleb.GetComponent<Pleb> ().dampen = true;
-		} else if (pleb.GetComponent<Pleb> ().dampen == true){
-			pleb.GetComponent<Pleb> ().dampen = false;
-		}
+		Vector3 whereTo = new Vector3();
+		float distance = float.MaxValue;
+		foreach (Transform target in targets){
+			float tmpDist = (target.position - pleb.transform.position).magnitude;
+			if (tmpDist < distance) {
+				distance = tmpDist;
+				whereTo = target.position - pleb.transform.position;
+				if (whereTo.magnitude < 10) {
+					pleb.GetComponent<Pleb> ().dampen = true;
+				} else if (pleb.GetComponent<Pleb> ().dampen == true) {
+					pleb.GetComponent<Pleb> ().dampen = false;
+				}
+			}
+		} 
 		return whereTo / factor4;
 	}
 
@@ -141,5 +148,15 @@ public class PlebFlocker : MonoBehaviour {
 			}
 		}
 		return moraleImpact;
+	}
+
+	public int CountBuilders(Vector3 location, float radius){
+		int count = 0;
+		for (int i = 0; i < numPlebs; i++) {
+			float distance = (plebs[i].transform.position - location).magnitude;
+			if (plebs [i].activeSelf && distance <= radius && plebs[i].GetComponent<Pleb>().GetState() == Pleb.STATE.BUILDING)
+				count++;
+		}
+		return count;
 	}
 }
