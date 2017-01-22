@@ -81,6 +81,13 @@ public class Tile : MonoBehaviour {
 		if (tileStage == TILE_STAGE.BUILD) {
 			if (damage > 0.0f)
 				damage -= healthRegen * Time.deltaTime;
+			int destroyPlebs = flocker.CountDestroyers (transform.position, buildRadius);
+			damage += destroyPlebs * Time.deltaTime;
+			if (damage > buildingHealt) {
+				tileStage = TILE_STAGE.DESTROYED;
+				Building.SetActive (false);
+				Ruin.SetActive (true);
+			}
 		}
 	}
 
