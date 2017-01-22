@@ -87,6 +87,7 @@ public class Tile : MonoBehaviour {
 				tileStage = TILE_STAGE.DESTROYED;
 				Building.SetActive (false);
 				Ruin.SetActive (true);
+				flocker.targets.Remove (transform);
 			}
 		}
 	}
