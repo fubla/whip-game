@@ -433,7 +433,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1523417262090084}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -4}
+  m_LocalPosition: {x: 0, y: 1, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4841700463049524}
@@ -626,7 +626,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -870,10 +870,10 @@ MonoBehaviour:
   playerCamera: {fileID: 20754475180404898}
   WhipRoot: {fileID: 4071997087260034}
   animator: {fileID: 95600227085487878}
-  scaleOffset: {x: 5, y: 3, z: 1}
+  scaleOffset: {x: 8, y: 5, z: 5}
   panLimits: {x: 0.9, y: 0.9}
   panSpeed: {x: 3, y: 3}
-  panBoundaries: {x: 50, y: 50}
+  panBoundaries: {x: 49, y: 49}
   audioSource: {fileID: 82302322224545392}
 --- !u!124 &124335527230890462
 Behaviour:
